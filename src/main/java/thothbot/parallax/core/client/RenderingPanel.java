@@ -92,6 +92,15 @@ public class RenderingPanel extends LayoutPanel implements IsWidget, HasWidgets,
 		updateBackground();
 	}
 	
+	private int width = 0;
+	private int height = 0;
+	public RenderingPanel(int width, int height) 
+	{
+		this();
+		this.width = width;
+		this.height = height;
+	}
+	
 	public Canvas3d getCanvas()
 	{
 		return this.canvas;
@@ -329,8 +338,8 @@ public class RenderingPanel extends LayoutPanel implements IsWidget, HasWidgets,
 	{
 		Log.debug("RenderingPanel: set size: W=" + width + ", H=" + height); 
 
-		getCanvas().setSize(width, height);
-		getRenderer().setSize(width, height);
+		getCanvas().setSize(this.width, this.height);
+		getRenderer().setSize(this.width, this.height);
 	}
 	
 	private void updateBackground()
